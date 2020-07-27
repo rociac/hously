@@ -8,12 +8,18 @@ const Login = () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const request = { "auth": {"email": email, "password": password} }
+    post('https://young-mountain-91908.herokuapp.com/api/user_token', request)
+      .then(response => {
+        localStorage.setItem('jwt', response.data.jwt);
+        console.log(response);
+      })
+      .catch(error => console.log('error', error));
   }
 
   return (
     <div>
       <h1>Login</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email: </label>
           <input id="email" type="email" name="email" />
