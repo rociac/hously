@@ -1,10 +1,10 @@
 import React from 'react';
-import HouseScreen from './HouseList';
+import HouseList from './HouseList';
 
 const HouseScreen = () => (
   <div>
     <h1>Houses</h1>
-    <HouseScreen />
+    <HouseList />
   </div>
 );
 
